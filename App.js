@@ -1,18 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-const parent = React.createElement("div", { id: "parent" },
-    React.createElement("div", { id: "child" }, [
-        React.createElement("h1", {}, "React h1 tag"),
-        React.createElement("h2", {}, "React h2 tag")]),
-    React.createElement("div", { id: "child2" }, [
-        React.createElement("h1", {}, "React h1 child tag"),
-        React.createElement("h2", {}, "React h2 child tag")])
+const Title = () => <h1 className="head">React using JSX</h1>;
 
+//react functional component
+
+const HeadingComponent = () => (
+  <div id="container">
+    {Title()}
+    <Title/>
+    <Title></Title>
+    <h1>Pushpa latha react functional components</h1>
+  </div>
 );
 
-console.log(parent)
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-
-root.render(parent);
+root.render(<HeadingComponent />);
