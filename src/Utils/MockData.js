@@ -1,50 +1,4 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
 
-const Header = () => {
-  return (
-    <div className="header">
-      <div className="Logo-container">
-        <img
-          className="logo"
-          src="https://image.freepik.com/free-vector/food-logo-design_139869-254.jpg"
-        />
-      </div>
-      <div className="nav-items">
-        <ul>
-          <li>Home</li>
-          <li>About Us</li>
-          <li>Contact Us</li>
-          <li>Cart</li>
-        </ul>
-      </div>
-    </div>
-  );
-};
-
-const RestaurantCard = (props) => {
-  const { resData } = props;
-  console.log("resData", resData);
-  const { name, cuisines, avgRating, costForTwo  , cloudinaryImageId} =
-  resData?.info;
-  console.log("costForTwo0",costForTwo);
-  
-  return (
-    <div className="res-card">
-      <img
-        className="res-logo"
-        src={
-          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-          cloudinaryImageId
-        }
-      />
-      <h2>{name}</h2>
-      <h3>{cuisines.join( ", ")}</h3>
-      <h3>{avgRating}</h3>
-      <h3>{costForTwo}</h3>
-    </div>
-  );
-};
 
 const restaurants= [
     {
@@ -146,7 +100,7 @@ const restaurants= [
         areaName: "Rohini",
         costForTwo: "₹250 for two",
         cuisines: ["Chinese", "Asian", "Tibetan", "Desserts"],
-        avgRating: 4.3,
+        avgRating: 3.3,
         parentId: "61955",
         avgRatingString: "4.3",
         totalRatingsString: "1.2K+",
@@ -237,7 +191,7 @@ const restaurants= [
         areaName: "Rohini M2K",
         costForTwo: "₹350 for two",
         cuisines: ["sandwich", "Salads", "wrap", "Healthy Food"],
-        avgRating: 4.3,
+        avgRating: 3.3,
         parentId: "2",
         avgRatingString: "4.3",
         totalRatingsString: "12K+",
@@ -423,7 +377,7 @@ const restaurants= [
         areaName: "Rohini",
         costForTwo: "₹350 for two",
         cuisines: ["Burgers", "American"],
-        avgRating: 4.3,
+        avgRating: 3.8,
         parentId: "166",
         avgRatingString: "4.3",
         totalRatingsString: "59K+",
@@ -686,27 +640,4 @@ const restaurants= [
     },
   ]
 
-const Body = () => {
-  return (
-    <div className="body">
-      <div className="search">Search</div>
-      <div className="res-container">
-        {restaurants.map((res) => (
-          <RestaurantCard key={res.info.id} resData={res} />
-        ))}
-      </div>
-    </div>
-  );
-};
-
-const AppLayout = () => {
-  return (
-    <div className="app">
-      <Header />
-      <Body />
-    </div>
-  );
-};
-const root = ReactDOM.createRoot(document.getElementById("root"));
-
-root.render(<AppLayout />);
+  export default restaurants
